@@ -1,0 +1,11 @@
+$main-color: blue;
+$second-color: red;
+
+h1 {
+    p {
+        color: $main-color;
+    }
+    div {
+        color: $second-color;
+    }
+}

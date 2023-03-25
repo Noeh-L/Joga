@@ -1,0 +1,14 @@
+{
+  "name": "joga",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+  },
+  "scripts": {
+    "build-css": "sass --watch --no-source-map ./scss/login.scss:./assets/css/login.css ./scss/dashboard.scss:./assets/css/dashboard.css"
+
+    },
+  "author": "",
+  "license": "ISC"
+}

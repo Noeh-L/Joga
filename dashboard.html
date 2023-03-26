@@ -4,10 +4,103 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/normalize.css">
     <link rel="stylesheet" href="./assets/css/dashboard.css">
     <title>Dashboard | JOGA</title>
 </head>
 <body>
-    <h1>DASHBOARD</h1>
+    <header class="header">
+        <div class="header__logo">
+            <img src="./assets/images/logo.jpeg" alt="Logo de Joga">
+        </div>
+        <nav class="header__navbar">
+            <ul>
+                <li><a href="./dashboard.html">Tableau de bord</a></li>
+                <li><a href="./blog.html">Actualités</a></li>
+                <li>
+                    <span class="profil-id">Nicolas</span>
+                    <div class="profil-picture">
+                        <!-- insérer une image et paramétrer son css -->
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="matchManager">
+            <button class="matchManager__newMatch">
+                Nouveau match
+            </button>
+
+            <div class="matchManager__myMatches">
+                <h2 class="matchManager__myMatches--title">Mes matchs :</h2>
+
+                <div class="matchManager__myMatches--allMatches scrollbar">
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°4 · 21/07/2023</p>
+                        <p>Statut : <span>programmé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°3 · 26/03/2023</p>
+                        <p>Statut : <span>en cours</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°2 · 14/02/2023</p>
+                        <p>Statut : <span>terminé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°1 · 09/01/2023</p>
+                        <p>Statut : <span>terminé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°4 · 21/07/2023</p>
+                        <p>Statut : <span>programmé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°3 · 26/03/2023</p>
+                        <p>Statut : <span>en cours</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°2 · 14/02/2023</p>
+                        <p>Statut : <span>terminé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°1 · 09/01/2023</p>
+                        <p>Statut : <span>terminé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°4 · 21/07/2023</p>
+                        <p>Statut : <span>programmé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°3 · 26/03/2023</p>
+                        <p>Statut : <span>en cours</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°2 · 14/02/2023</p>
+                        <p>Statut : <span>terminé</span></p>
+                    </div>
+                    <div class="matchManager__myMatches--match">
+                        <p>Match n°1 · 09/01/2023</p>
+                        <p>Statut : <span>terminé</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="matchContent">
+
+        </section>
+
+        <aside class="bestPlayers">
+
+        </aside>
+
+    </main>
+
+    <footer>
+
+    </footer>
 </body>
 </html>

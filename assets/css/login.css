@@ -1,6 +1,45 @@
-h1 p {
-  color: blue;
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
 }
-h1 div {
-  color: red;
+body form {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  padding: 2rem;
+  margin-top: 3rem;
+}
+body form input {
+  border-radius: 10px;
+  height: 1.5rem;
+}
+body form .identifiant {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+body form .password {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+body form a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+  border: black solid 1px;
+  border-radius: 100vh;
+  height: 3rem;
+}
+body form a:hover {
+  background: #ccc;
+}
+body form a:visited {
+  color: black;
 }

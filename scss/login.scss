@@ -1,11 +1,51 @@
-$main-color: blue;
-$second-color: red;
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
 
-h1 {
-    p {
-        color: $main-color;
-    }
-    div {
-        color: $second-color;
+    form {
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        padding: 2rem;
+        margin-top: 3rem;
+        
+        input {
+            border-radius: 10px;
+            height: 1.5rem;
+        }
+
+        .identifiant {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .password {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-size: 1.5rem;
+            border: black solid 1px;
+            border-radius: 100vh;
+            height: 3rem;
+
+            &:hover {
+                background: #ccc;
+            }
+            &:visited {
+                color: black;
+            }
+        }
     }
 }
+  
+  

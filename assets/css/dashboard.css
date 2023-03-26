@@ -36,6 +36,8 @@ body {
   top: 0;
   z-index: 10;
   backdrop-filter: hue-rotate(14deg) blur(5px);
+  background-color: rgba(236, 236, 236, 0.1);
+  border-bottom: rgba(64, 26, 203, 0.1) solid 1px;
 }
 .header__logo {
   width: 12rem;
@@ -64,7 +66,7 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  border: solid 1px;
+  border: solid 1px #401ACB;
   padding: 5px 7px;
   border-radius: 100vh;
   cursor: pointer;
@@ -73,7 +75,7 @@ body {
   width: 2.5rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: greenyellow;
+  background: #A9F706;
 }
 
 main {
@@ -86,7 +88,7 @@ main {
   margin-top: 9rem;
 }
 main .matchManager, main .bestPlayers {
-  border: solid 1px #ccc;
+  border: solid 1px #401ACB;
   border-radius: 2rem;
   padding: 1.5rem;
 }
@@ -98,26 +100,33 @@ main .matchManager {
   max-height: 100vh;
 }
 main .matchManager__newMatch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 95%;
-  height: 5rem;
+  padding: 1rem;
   border-radius: 1.2rem;
   border: none;
   margin-bottom: 2.5rem;
   background: #A9F706;
   color: #401ACB;
-  font-size: x-large;
+  font-size: 1.2rem;
   font-weight: bold;
   box-shadow: 5px 5px 0 #401ACB;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
+main .matchManager__newMatch i {
+  margin-right: 0.6rem;
+  font-size: 2rem;
+}
 main .matchManager__newMatch:hover {
   background-color: #c2fd42;
   box-shadow: 0px 0px 0 #A9F706;
 }
 main .matchManager__newMatch:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
   transition: transform 0.1s ease;
 }
 main .matchManager__myMatches {
@@ -135,36 +144,164 @@ main .matchManager__myMatches--title {
 main .matchManager__myMatches--allMatches {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  border: solid black 1px;
+  gap: 1rem;
+  background: #ededed;
   border-radius: 1.2rem;
   padding: 1rem;
   width: 100%;
   overflow-y: scroll;
   position: relative;
 }
+main .matchManager__myMatches--allMatches-match {
+  border: solid 1px transparent;
+  border-radius: 1.3rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: white;
+  transition: background 0.2s ease;
+}
+main .matchManager__myMatches--allMatches-match:hover {
+  background: #A9F706;
+}
 main .matchContent {
   flex: 2.2;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
-  justify-content: space-between;
 }
 main .matchContent > div {
-  background: #f7f7f7;
-  height: 10rem;
+  background: #ededed;
   width: 100%;
   border-radius: 2rem;
-  padding: 1rem 1.5rem;
+  padding: 1.5rem;
+}
+main .matchContent > div h2 {
+  margin-bottom: 1rem;
+}
+main .matchContent__titleBanner {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+main .matchContent__titleBanner--infos-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+main .matchContent__titleBanner--infos-title .matchStatut {
+  background: rgb(255, 200, 97);
+  border-radius: 6px;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.85rem;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  box-shadow: 0px 3px 10px #ccc;
+  display: flex;
+  align-items: center;
+}
+main .matchContent__titleBanner--infos-title .matchStatut i {
+  margin-right: 0.45rem;
+}
+main .matchContent__titleBanner--infos-title h1 {
+  margin: 0;
+}
+main .matchContent__titleBanner--infos-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: white;
+  border-radius: 0.9rem;
+  padding: 0.5rem;
+  max-width: 20rem;
+}
+main .matchContent__titleBanner--infos-details .captain {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+main .matchContent__titleBanner--infos-details .location {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+main .matchContent__titleBanner--settings {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  height: 60%;
+  border-radius: 1.2rem;
+  padding: 0.7rem;
+}
+main .matchContent__titleBanner--settings .settingBtn {
+  flex: 1;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  text-align: start;
+  padding: 0 0.5rem;
+  font-weight: bold;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+}
+main .matchContent__titleBanner--settings .settingBtn i {
+  margin-right: 0.5rem;
+}
+main .matchContent__titleBanner--settings .modifyButton {
+  background: #ededed;
+}
+main .matchContent__titleBanner--settings .modifyButton:hover {
+  background: #d7d7d7;
+}
+main .matchContent__titleBanner--settings .deleteButton {
+  background: rgb(230, 0, 0);
+  color: white;
+}
+main .matchContent__titleBanner--settings .deleteButton:hover {
+  background: rgb(200, 0, 0);
+}
+main .matchContent__description {
+  min-height: 12rem;
+}
+main .matchContent__description--image {
+  width: 18rem;
+  aspect-ratio: 16/9;
+  float: right;
+  margin: 0 0 1rem 1rem;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border-top: #A9F706 solid 1px;
+  border-left: #A9F706 solid 1px;
+  box-shadow: 5px 5px 0 #401ACB;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+}
+main .matchContent__description--image:hover {
+  box-shadow: 0px 0px 0 #401ACB;
+}
+main .matchContent__description--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main .matchContent__description p {
+  text-align: justify;
 }
 main .bestPlayers {
   flex: 1;
   max-height: 100vh;
 }
+main .bestPlayers div {
+  display: flex;
+  justify-content: space-between;
+}
 
 footer {
   width: 100%;
   height: 10rem;
-  border: black 1px solid;
   margin-top: 4rem;
+  backdrop-filter: hue-rotate(14deg) blur(5px);
+  background-color: rgba(236, 236, 236, 0.1);
+  border-top: rgba(64, 26, 203, 0.1) solid 1px;
 }

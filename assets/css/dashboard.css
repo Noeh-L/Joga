@@ -34,10 +34,11 @@ body {
   justify-content: space-between;
   position: fixed;
   top: 0;
+  z-index: 10;
   backdrop-filter: hue-rotate(14deg) blur(5px);
 }
 .header__logo {
-  width: 6rem;
+  width: 12rem;
 }
 .header__logo img {
   width: 100%;
@@ -78,13 +79,13 @@ body {
 main {
   display: flex;
   justify-content: space-between;
-  height: 40rem;
+  min-height: 40rem;
   width: 85%;
   margin: auto;
   gap: 2rem;
   margin-top: 9rem;
 }
-main .matchManager, main .matchContent, main .bestPlayers {
+main .matchManager, main .bestPlayers {
   border: solid 1px #ccc;
   border-radius: 2rem;
   padding: 1.5rem;
@@ -94,6 +95,7 @@ main .matchManager {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 100vh;
 }
 main .matchManager__newMatch {
   width: 95%;
@@ -143,9 +145,21 @@ main .matchManager__myMatches--allMatches {
 }
 main .matchContent {
   flex: 2.2;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .matchContent > div {
+  background: #f7f7f7;
+  height: 10rem;
+  width: 100%;
+  border-radius: 2rem;
+  padding: 1rem 1.5rem;
 }
 main .bestPlayers {
   flex: 1;
+  max-height: 100vh;
 }
 
 footer {

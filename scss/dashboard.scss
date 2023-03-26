@@ -45,10 +45,11 @@ body {
     justify-content: space-between;
     position: fixed;
     top: 0;
+    z-index: 10;
     backdrop-filter: hue-rotate(14deg) blur(5px);
     
     &__logo {
-        width: 6rem;
+        width: 12rem;
         img {
             width: 100%;
         }
@@ -96,13 +97,13 @@ body {
 main {
     display: flex;
     justify-content: space-between;
-    height: 40rem;
+    min-height: 40rem;
     width: 85%;
     margin: auto;
     gap: 2rem;
     margin-top: $header-hight + 4;
 
-    .matchManager, .matchContent, .bestPlayers {
+    .matchManager, .bestPlayers {
         border: solid 1px #ccc;
         border-radius: 2rem;
         padding: 1.5rem;
@@ -113,6 +114,7 @@ main {
         display: flex;
         flex-direction: column;
         align-items: center;
+        max-height: 100vh;
 
         &__newMatch {
             width: 95%;
@@ -165,11 +167,31 @@ main {
             }
         }
     }
+
     .matchContent {
         flex: 2.2;
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+        justify-content: space-between;
+
+        > div {
+            background: #f7f7f7;
+            height: 10rem;
+            width: 100%;
+            border-radius: 2rem;
+            padding: 1rem 1.5rem;
+        }
+
+        .titleBanner {
+
+        }
+
     }
+
     .bestPlayers {
         flex: 1;
+        max-height: 100vh;
     }
 }
 

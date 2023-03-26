@@ -6,7 +6,7 @@
   "directories": {
   },
   "scripts": {
-    "build-css": "sass --watch --no-source-map ./scss/login.scss:./assets/css/login.css ./scss/dashboard.scss:./assets/css/dashboard.css"
+    "build-css": "sass --watch --no-source-map ./scss/login.scss:./assets/css/login.css ./scss/dashboard.scss:./assets/css/dashboard.css ./scss/blog.scss:./assets/css/blog.css"
 
     },
   "author": "",

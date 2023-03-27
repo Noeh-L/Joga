@@ -14,9 +14,11 @@
 
 a {
   text-decoration: none;
-}
-a:visited {
   color: black;
+  transition: color 0.15s ease;
+}
+a:hover {
+  color: #401ACB;
 }
 
 body {
@@ -181,7 +183,11 @@ main .matchContent > div h2 {
 main .matchContent__titleBanner {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: start;
+  gap: 1rem;
+}
+main .matchContent__titleBanner--infos {
+  flex: 1;
 }
 main .matchContent__titleBanner--infos-title {
   display: flex;
@@ -211,55 +217,97 @@ main .matchContent__titleBanner--infos-details {
   flex-direction: column;
   gap: 0.4rem;
   background: white;
-  border-radius: 0.9rem;
-  padding: 0.5rem;
-  max-width: 20rem;
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
 }
-main .matchContent__titleBanner--infos-details .captain {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-main .matchContent__titleBanner--infos-details .location {
+main .matchContent__titleBanner--infos-details-detail {
   overflow: hidden;
   text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  text-align: justify;
+  gap: 1rem;
+}
+main .matchContent__titleBanner--infos-details-detail i {
+  width: 1.5rem;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #401ACB;
+  font-size: 1.05rem;
+}
+main .matchContent__titleBanner--infos-details-detail span {
+  width: fit-content;
+}
+main .matchContent__titleBanner--infos-details-detail.captain i {
+  color: rgb(255, 208, 0);
+}
+main .matchContent__titleBanner--infos-details-detail.captain span {
+  font-weight: bold;
+  color: #401ACB;
 }
 main .matchContent__titleBanner--settings {
-  background: white;
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 0.7rem;
-  height: 60%;
-  border-radius: 1.2rem;
-  padding: 0.7rem;
+  width: fit-content;
+  height: 100%;
 }
 main .matchContent__titleBanner--settings .settingBtn {
-  flex: 1;
+  display: flex;
+  width: fit-content;
+  padding: 0.7rem 1rem;
   border: none;
   font-size: 0.85rem;
   cursor: pointer;
   border-radius: 0.5rem;
-  text-align: start;
-  padding: 0 0.5rem;
   font-weight: bold;
-  transition: background 0.15s ease;
-  white-space: nowrap;
+  transition: all 0.2s ease;
 }
 main .matchContent__titleBanner--settings .settingBtn i {
   margin-right: 0.5rem;
 }
+main .matchContent__titleBanner--settings .postButton {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  background: #A9F706;
+  color: #401ACB;
+  box-shadow: 5px 5px 0 #401ACB;
+  text-transform: uppercase;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+main .matchContent__titleBanner--settings .postButton i {
+  font-size: 1.5rem;
+}
+main .matchContent__titleBanner--settings .postButton:hover {
+  background: #c2fd42;
+  box-shadow: 0px 0px 0 #401ACB;
+}
+main .matchContent__titleBanner--settings .postButton:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
 main .matchContent__titleBanner--settings .modifyButton {
+  width: 100%;
   background: #ededed;
+  border: solid 1px #dbdbdb;
 }
 main .matchContent__titleBanner--settings .modifyButton:hover {
   background: #d7d7d7;
 }
 main .matchContent__titleBanner--settings .deleteButton {
-  background: rgb(230, 0, 0);
-  color: white;
+  width: 100%;
+  background: #ededed;
+  border: solid 1px rgb(230, 0, 0);
+  color: rgb(230, 0, 0);
 }
 main .matchContent__titleBanner--settings .deleteButton:hover {
-  background: rgb(200, 0, 0);
+  background: rgb(230, 0, 0);
+  color: white;
 }
 main .matchContent__description {
   min-height: 12rem;

@@ -37,7 +37,7 @@ body {
   position: fixed;
   top: 0;
   z-index: 10;
-  backdrop-filter: hue-rotate(14deg) blur(5px);
+  backdrop-filter: hue-rotate(14deg) blur(5px) grayscale(75%);
   background-color: rgba(236, 236, 236, 0.1);
   border-bottom: rgba(64, 26, 203, 0.1) solid 1px;
 }
@@ -88,6 +88,11 @@ main {
   margin: auto;
   gap: 2rem;
   margin-top: 9rem;
+}
+@media screen and (max-width: 992px) {
+  main {
+    flex-direction: column;
+  }
 }
 main .matchManager, main .bestPlayers {
   border: solid 1px #401ACB;
@@ -172,7 +177,7 @@ main .matchContent {
   flex-direction: column;
 }
 main .matchContent > div {
-  background: #ededed;
+  background: #f3f3f3;
   width: 100%;
   border-radius: 2rem;
   padding: 1.5rem;
@@ -184,6 +189,7 @@ main .matchContent__titleBanner {
   display: flex;
   justify-content: space-between;
   align-items: start;
+  background: #dfdfdf !important;
   gap: 1rem;
 }
 main .matchContent__titleBanner--infos {
@@ -215,36 +221,32 @@ main .matchContent__titleBanner--infos-title h1 {
 main .matchContent__titleBanner--infos-details {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 1rem;
   background: white;
   border-radius: 0.75rem;
-  padding: 0.6rem 0.8rem;
+  padding: 1rem 0.8rem;
   font-size: 0.9rem;
 }
 main .matchContent__titleBanner--infos-details-detail {
   overflow: hidden;
   text-overflow: ellipsis;
   display: flex;
-  align-items: center;
+  align-items: start;
   text-align: justify;
   gap: 1rem;
 }
-main .matchContent__titleBanner--infos-details-detail i {
-  width: 1.5rem;
-  aspect-ratio: 1;
+main .matchContent__titleBanner--infos-details-detail .icon {
+  min-width: 2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   color: #401ACB;
   font-size: 1.05rem;
 }
-main .matchContent__titleBanner--infos-details-detail span {
-  width: fit-content;
-}
-main .matchContent__titleBanner--infos-details-detail.captain i {
+main .matchContent__titleBanner--infos-details-detail.captain .captain-icon {
   color: rgb(255, 208, 0);
 }
-main .matchContent__titleBanner--infos-details-detail.captain span {
+main .matchContent__titleBanner--infos-details-detail.captain .captain-UserName {
   font-weight: bold;
   color: #401ACB;
 }

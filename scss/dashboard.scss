@@ -49,7 +49,7 @@ body {
     position: fixed;
     top: 0;
     z-index: 10;
-    backdrop-filter: hue-rotate(14deg) blur(5px);
+    backdrop-filter: hue-rotate(14deg) blur(5px) grayscale(75%);
     background-color: rgba($color: #ececec, $alpha: 0.1);
     border-bottom: rgba($color:$main-color, $alpha: 0.1) solid 1px;
     
@@ -107,6 +107,10 @@ main {
     margin: auto;
     gap: 2rem;
     margin-top: $header-hight + 4;
+
+    @media screen and (max-width: 992px) {
+        flex-direction: column;
+    }
 
     .matchManager, .bestPlayers {
         border: solid 1px $main-color;
@@ -201,7 +205,7 @@ main {
         flex-direction: column;
 
         > div {
-            background: #ededed;
+            background: #f3f3f3;
             width: 100%;
             border-radius: 2rem;
             padding: 1.5rem;
@@ -215,6 +219,7 @@ main {
             display: flex;
             justify-content: space-between;
             align-items: start;
+            background: #dfdfdf !important;
             gap: 1rem;
 
             &--infos {
@@ -249,46 +254,39 @@ main {
                 &-details {
                     display: flex;
                     flex-direction: column;
-                    gap: 0.4rem;
+                    gap: 1rem;
                     background: white;
                     border-radius: 0.75rem;
-                    padding: 0.6rem 0.8rem;
+                    padding: 1rem 0.8rem;
                     font-size: 0.9rem;
 
                     &-detail {
                         overflow: hidden;
                         text-overflow: ellipsis;
                         display: flex;
-                        align-items: center;
+                        align-items: start;
                         text-align: justify;
                         gap: 1rem;
 
-                        i {
-                            width: 1.5rem;
-                            aspect-ratio: 1;
+                        .icon {
+                            min-width: 2rem;
                             display: flex;
                             justify-content: center;
-                            align-items: center;
+                            align-items: start;
                             color: $main-color;
                             font-size: 1.05rem;
-                        }
-                        
-                        span {
-                            width: fit-content;                                
-                        }
+                        }  
 
                         &.captain {
-                            i {
+                            .captain-icon {
                                 color: rgb(255, 208, 0);
                             }
-                            span {
+                            .captain-UserName {
                                 font-weight: bold;
                                 color: $main-color;
                             }
                         }
                     }
-
-                    
                 }
             }
             
@@ -400,6 +398,10 @@ main {
     .bestPlayers {
         flex: 1;
         max-height: 100vh;
+
+        @media screen and (max-width: 992px) {
+            // order: 2;
+        }
 
         div {
             display: flex;

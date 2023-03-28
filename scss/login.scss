@@ -1,3 +1,17 @@
+// FONT :
+@import url(//db.onlinewebfonts.com/c/40ea291a03f81ef88a049f19415be431?family=Apercu+Pro);
+
+// VARIABLES et MIXINS:
+@import 'variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: 'Apercu Pro', sans-serif;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -15,6 +29,7 @@ body {
         input {
             border-radius: 10px;
             height: 1.5rem;
+            border: solid 1px black;
         }
 
         .identifiant {

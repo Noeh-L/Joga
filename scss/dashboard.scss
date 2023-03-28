@@ -1,55 +1,38 @@
-@font-face {
-    font-family: 'Apercu Pro';
-    src: local('Apercu Pro Regular'), local('Apercu-Pro-Regular'),
-        url('ApercuPro-Regular.woff2') format('woff2'),
-        url('ApercuPro-Regular.woff') format('woff'),
-        url('ApercuPro-Regular.ttf') format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
+// FONT :
+@import url(//db.onlinewebfonts.com/c/40ea291a03f81ef88a049f19415be431?family=Apercu+Pro);
 
-
-// VARIABLES :
- $header-hight: 5rem;
- $main-color: #401ACB;
- $secondary-color: #A9F706;
- $btn-hover-color: #c2fd42;
-
+// VARIABLES et MIXINS:
+@import 'variables.scss';
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    font-family: sans-serif;
+    font-family: 'Apercu Pro', sans-serif;
 }
 a {
     text-decoration: none;
-    color: black;
     transition: color 0.15s ease;
-
-    &:hover {
-        color: $main-color;
-    }
 }
 
 body {
     min-height: 100vh;
     position: relative;
+    background: $body-bg;
 }
 
 .header {
     width: 100%;
     height: $header-hight;
     padding: 0 1.5rem;
-    font-family: 'Apercu Pro', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: fixed;
     top: 0;
     z-index: 10;
-    backdrop-filter: hue-rotate(14deg) blur(5px) grayscale(75%);
+    backdrop-filter: blur(6px) brightness(75%);
     background-color: rgba($color: #ececec, $alpha: 0.1);
     border-bottom: rgba($color:$main-color, $alpha: 0.1) solid 1px;
     
@@ -63,6 +46,7 @@ body {
         height: $header-hight;
         display: flex;
         align-items: center;
+        font-weight: bold;
 
         ul {
             display: flex;
@@ -70,19 +54,31 @@ body {
             gap: 2.5rem;
             height: 100%;
             width: 100%;
+            font-size: 1.2rem;
+            color: white;
 
             li {
                 text-overflow:ellipsis;
                 overflow: hidden;
                 white-space: nowrap;
+
+                a {
+                    text-decoration: none;
+                    transition: color 0.15s ease;
+                    color: white;
+                
+                    &:hover {
+                        color: $secondary-color;
+                    }
+                }
             }
 
             li:last-child {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
-                border: solid 1px $main-color;
-                padding: 5px 7px;
+                border: solid 1px $secondary-color;
+                padding: 0.5rem 0.7rem;
                 border-radius: 100vh;
                 cursor: pointer;
 
@@ -103,8 +99,8 @@ main {
     display: flex;
     justify-content: space-between;
     min-height: 40rem;
-    width: 85%;
-    margin: auto;
+    width: 100%;
+    padding: 0 2rem;
     gap: 2rem;
     margin-top: $header-hight + 4;
 
@@ -112,52 +108,73 @@ main {
         flex-direction: column;
     }
 
-    .matchManager, .bestPlayers {
-        border: solid 1px $main-color;
-        border-radius: 2rem;
-        padding: 1.5rem;
-    }
 
+//-------------------------------
+// ⚽ GESTIONNAIRE DE MATCHS ⚽
+//-------------------------------
     .matchManager {
         flex: 1;
         display: flex;
         flex-direction: column;
         align-items: center;
         max-height: 100vh;
+        background: $managerBlocs-bg;
+        box-shadow:  0 0 0 #45464e;
+        border-radius: $bloc-borderRadius;
+        padding: 1.5rem;
 
+        // Bouton "Nouveau match"
         &__newMatch {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 95%;
-            padding: 1rem;            
-            border-radius: 1.2rem;
-            border: none;
+            @include mainButton(#dddddd, 1.1rem);
+            width: fit-content;
             margin-bottom: 2.5rem;
-            background: $secondary-color;
-            color: $main-color;
-            font-size: 1.2rem;
-            font-weight: bold;
-            box-shadow: 5px 5px 0 $main-color;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            overflow: hidden;
+            transition: color 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 
+            div {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                z-index: 1;
+            }
             i{
-                margin-right: 0.6rem;
-                font-size: 2rem;
+                margin-right: 1rem;
+                font-size: 1.5rem;
+                color: $secondary-color;
+                z-index: 1;
             }
 
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: $secondary-color;
+            }
+            &::after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                transform: translateX(-78%);
+                background: $main-color;
+                transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+            }
             &:hover {
-                background-color: $btn-hover-color;
-                box-shadow: 0px 0px 0 $secondary-color;
+                color: #A9F706;
+
+                &::after {
+                    transform: translateX(0%);
+                }
             }
             &:active {
                 transform: scale(0.98);
                 transition: transform 0.1s ease;
             }
+           
         }
         
+        // Historique des matchs
         &__myMatches {
             width: 95%;
             flex: 1;
@@ -168,14 +185,14 @@ main {
             &--title {
                 margin-bottom: 1rem;
                 margin-left: 0.5rem;
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             &--allMatches {
                 display: flex;
                 flex-direction: column;
                 gap: 1rem;
-                background: #ededed;
+                background: $editorBlocs-bg;
                 border-radius: 1.2rem;
                 padding: 1rem;
                 width: 100%;
@@ -187,234 +204,341 @@ main {
                     border-radius: 1.3rem;
                     padding: 0.5rem 1rem;
                     cursor: pointer;
-                    background: white;
-                    transition: background 0.2s ease;
+                    background: $managerBlocs-bg;
+                    transition: background 0.3s ease-in-out;
+
+                    p:first-child {
+                        margin-bottom: 0.2rem;
+                    }
+                    p:last-child {
+                        font-size: 0.8rem;
+                    }
 
                     &:hover {
                         background: $secondary-color;
+                        font-weight: bold;
                     }
                 }
             }
         }
     }
 
-    .matchContent {
-        flex: 2.2;
+//-------------------------------
+// 📝 EDITEUR DE MATCHS 📝
+//-------------------------------
+    .matchEditor {
+        flex: 4;
         display: flex;
-        gap: 1rem;
-        flex-direction: column;
+        gap: 2rem;
 
-        > div {
-            background: #f3f3f3;
-            width: 100%;
-            border-radius: 2rem;
-            padding: 1.5rem;
 
-            h2 {
-                margin-bottom: 1rem;
-            }
-        }
-
-        &__titleBanner {
+        // 📑 Informations du match 
+        &_content {
+            flex: 3;
             display: flex;
-            justify-content: space-between;
-            align-items: start;
-            background: #dfdfdf !important;
-            gap: 1rem;
+            gap: 2rem;
+            flex-direction: column;
 
-            &--infos {
-                flex: 1;
+            > div {
+                @include editorBlocs-border;
+                @include editorBlocs-shadow;
+                background: $editorBlocs-bg;
+                width: 100%;
+                border-radius: 2rem;
+                padding: 1.5rem;
 
-                &-title {
-                    display: flex;
-                    flex-direction: column;
+                h2 {
                     margin-bottom: 1rem;
-    
-                    .matchStatut {
-                        background: rgb(255, 200, 97);
-                        border-radius: 6px;
-                        padding: 0.5rem 0.7rem;
-                        font-size: 0.85rem;
-                        width: fit-content;
-                        margin-bottom: 0.5rem;
-                        font-weight: bold;
-                        box-shadow: 0px 3px 10px #ccc;
+                }
+            }
+
+            &__titleBanner {
+                display: flex;
+                justify-content: space-between;
+                align-items: start;
+                background: $editorBlocs-bg !important;
+                gap: 1rem;
+
+                &--infos {
+                    flex: 1;
+
+                    &-title {
                         display: flex;
-                        align-items: center;
+                        flex-direction: column;
+                        margin-bottom: 1rem;
+        
+                        .matchStatus {
+                            display: flex;
+                            gap: 1rem;
+                            margin-bottom: 1rem;
+
+
+                            &--tag {
+                                border-radius: 6px;
+                                padding: 0.3rem 0.6rem;
+                                font-size: 0.85rem;
+                                width: fit-content;
+                                font-weight: bold;
+                                display: flex;
+                                align-items: center;
+        
+                                i {
+                                    margin-right: 0.45rem;
+                                }
+
+                                &.dateState {
+                                    background: rgb(255, 200, 97);
+                                }
+                                &.publicationState {
+                                    border: solid 1px green;
+                                    color:green;
+                                }
+                            }
+                            
+                        }
+                        h1 {
+                            margin: 0;
+                        }
+                    }
+
+                    &-details {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0.6rem;
+                        padding: 1rem 0.6rem 0.6rem 0.5rem;
+                        font-size: 0.9rem;
+                        position: relative;
+
+                        // trait de séparation
+                        &::before {
+                            content: '';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 50%;
+                            height: 2px;
+                            border-radius: 100vh;
+                            background: $managerBlocs-bg;
+                        }
+
+                        &-detail {
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: flex;
+                            align-items: start;
+                            text-align: justify;
+                            gap: 1rem;
+
+                            .icon {
+                                min-width: 2rem;
+                                display: flex;
+                                justify-content: center;
+                                align-items: start;
+                                color: $main-color;
+                                font-size: 1.05rem;
+                            }  
+
+                            &.captain {
+                                
+                                // .captain-icon {
+                                //     color: rgb(255, 208, 0);
+                                // }
+                                .captain-UserName a {
+                                    font-weight: bold;
+                                    color: $main-color;
+
+                                    &:hover {
+                                        color: rgba($main-color, $alpha: 0.6);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                
+                &--settings {
+                    display: flex;
+                    flex-direction: column-reverse;
+                    gap: 0.7rem;
+                    width: fit-content;
+                    height: 100%;
+                    
+                    .settingBtn {
+                        display: flex;
+                        width: fit-content;
+                        padding: 0.7rem 1rem;
+                        border: none;
+                        font-size: 0.85rem;
+                        cursor: pointer;
+                        border-radius: 0.5rem;
+                        font-weight: bold;
+                        transition: all 0.2s ease;
 
                         i {
-                            margin-right: 0.45rem;
+                            margin-right: 0.5rem;
                         }
                     }
-                    h1 {
-                        margin: 0;
-                    }
-                }
 
-                &-details {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 1rem;
-                    background: white;
-                    border-radius: 0.75rem;
-                    padding: 1rem 0.8rem;
-                    font-size: 0.9rem;
-
-                    &-detail {
+                    .postButton {
+                        @include mainButton(#b8b8b8, 1rem);
+                        width: 100%;
+                        flex: 1;
+                        position: relative;
                         overflow: hidden;
-                        text-overflow: ellipsis;
-                        display: flex;
-                        align-items: start;
-                        text-align: justify;
-                        gap: 1rem;
 
-                        .icon {
-                            min-width: 2rem;
-                            display: flex;
-                            justify-content: center;
-                            align-items: start;
-                            color: $main-color;
-                            font-size: 1.05rem;
-                        }  
+                        div, i {
+                            z-index: 1;
+                        }
+                        i {
+                            font-size: 1.2rem;
+                            margin-right: 0.7rem;
+                        }
 
-                        &.captain {
-                            .captain-icon {
-                                color: rgb(255, 208, 0);
+                        &::before {
+                            content: "";
+                            position: absolute;
+                            inset: 0;
+                            background: $secondary-color;
+                        }
+                        &::after {
+                            content: "";
+                            width: 150%;
+                            height: 150%;
+                            border-radius: 100vh;
+                            position: absolute;
+                            transform: translate(68%, -68%);
+                            background: $main-color;
+                            transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+                        }
+
+                        &:hover {
+                            color: $secondary-color;
+
+                            &::after {
+                                transform: translate(0%, 0%);
                             }
-                            .captain-UserName {
-                                font-weight: bold;
-                                color: $main-color;
-                            }
+                        }
+                        &:active {
+                            transform: scale(0.98);
+                            transition: transform 0.1s ease;
+                        }
+                    }
+                    .modifyButton {
+                        width: 100%;
+                        background: #ededed;
+                        border: solid 1px $managerBlocs-bg;
+
+                        &:hover {
+                            background: $managerBlocs-bg;
+                        }
+                    }
+                    .deleteButton {
+                        width: 100%;
+                        background: #ededed;
+                        border: solid 1px rgb(230, 0, 0);
+                        color: rgb(230, 0, 0);
+
+                        &:hover {
+                            background: rgb(230, 0, 0);
+                            color: white;
                         }
                     }
                 }
             }
-            
-            
-            &--settings {
-                display: flex;
-                flex-direction: column-reverse;
-                gap: 0.7rem;
-                width: fit-content;
-                height: 100%;
-                
-                .settingBtn {
-                    display: flex;
-                    width: fit-content;
-                    padding: 0.7rem 1rem;
-                    border: none;
-                    font-size: 0.85rem;
-                    cursor: pointer;
-                    border-radius: 0.5rem;
-                    font-weight: bold;
-                    transition: all 0.2s ease;
 
-                    i {
-                        margin-right: 0.5rem;
-                    }
-                }
+            &__description {
+                min-height: 12rem;
 
-                .postButton {
-                    display: flex;
-                    align-items: center;
-                    width: 100%;
-                    flex: 1;
-                    background: $secondary-color;
-                    color: $main-color;
+                &--image {
+                    width: 18rem;
+                    aspect-ratio: 16 / 9;
+                    float: right;
+                    margin: 0 0 1rem 1rem;
+                    overflow: hidden;
+                    border-radius: 1.5rem;  
+                    border-top: $secondary-color solid 1px;
+                    border-left: $secondary-color solid 1px;
                     box-shadow: 5px 5px 0 $main-color;
-                    text-transform: uppercase;
-                    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
-
-                    i {
-                        font-size: 1.5rem;
-                    }
-
+                    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); 
+                    cursor: pointer;
+                    
                     &:hover {
-                        background: $btn-hover-color;
                         box-shadow: 0px 0px 0 $main-color;
                     }
-                    &:active {
-                        transform: scale(0.98);
-                        transition: transform 0.1s ease;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
                     }
                 }
-                .modifyButton {
-                    width: 100%;
-                    background: #ededed;
-                    border: solid 1px #dbdbdb;
 
-                    &:hover {
-                        background: #d7d7d7;
-                    }
+                p {
+                    text-align: justify;
                 }
-                .deleteButton {
-                    width: 100%;
-                    background: #ededed;
-                    border: solid 1px rgb(230, 0, 0);
-                    color: rgb(230, 0, 0);
+            }
 
-                    &:hover {
-                        background: rgb(230, 0, 0);
-                        color: white;
+        }
+
+
+        // 🏆 Meilleurs joueurs 
+        &__bestPlayers {
+            @include editorBlocs-border;
+            @include editorBlocs-shadow;
+            background: $editorBlocs-bg;
+            flex: 1;
+            max-height: 100vh;
+            border-radius: 2rem;
+            border-radius: $bloc-borderRadius;
+            padding: 1.5rem;
+            overflow: hidden;
+
+            @media screen and (max-width: 992px) {
+                // order: 2;
+            }
+
+            &--title {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+            }
+
+            &--players {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                &-player {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    height: 2rem;
+
+                    &-picture {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        width: 2rem;
+                        aspect-ratio: 1;
+                        border-radius: 50%;
+                        border: solid 1px $main-color;
+                        color: $main-color;
                     }
                 }
             }
         }
-
-        &__description {
-            min-height: 12rem;
-
-            &--image {
-                width: 18rem;
-                aspect-ratio: 16 / 9;
-                float: right;
-                margin: 0 0 1rem 1rem;
-                overflow: hidden;
-                border-radius: 1.5rem;  
-                border-top: $secondary-color solid 1px;
-                border-left: $secondary-color solid 1px;
-                box-shadow: 5px 5px 0 $main-color;
-                transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); 
-                cursor: pointer;
-                
-                &:hover {
-                    box-shadow: 0px 0px 0 $main-color;
-                }
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            p {
-                text-align: justify;
-            }
-        }
-
     }
 
-    .bestPlayers {
-        flex: 1;
-        max-height: 100vh;
-
-        @media screen and (max-width: 992px) {
-            // order: 2;
-        }
-
-        div {
-            display: flex;
-            justify-content: space-between;
-        }
-    }
 }
 
 footer {
     width: 100%;
     height: 10rem;
     margin-top: 4rem;
-    backdrop-filter: hue-rotate(14deg) blur(5px);
-    background-color: rgba($color: #ececec, $alpha: 0.1);
-    border-top: rgba($color:$main-color, $alpha: 0.1) solid 1px;
+    background-color: hsl(235, 6%, 20%);
 }
+
+
+

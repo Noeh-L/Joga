@@ -38,7 +38,7 @@
         <section class="matchManager">
             <button class="matchManager__newMatch">
                 <i class="fa-solid fa-circle-plus"></i>
-                Nouveau match
+                <div>Nouveau match</div>
             </button>
 
             <div class="matchManager__myMatches">
@@ -97,74 +97,205 @@
             </div>
         </section>
 
-        <section class="matchContent">
-            <div class="matchContent__titleBanner">
-               
-                <div class="matchContent__titleBanner--infos">
-                    <div class="matchContent__titleBanner--infos-title">
-                        <p class="matchStatut">
-                            <i class="fa-regular fa-calendar-check"></i>
-                            À venir
-                        </p>
-                        <h1>Nom du match</h1>
+        <section class="matchEditor">
+            <section class="matchEditor_content">
+                <div class="matchEditor_content__titleBanner">
+                
+                    <div class="matchEditor_content__titleBanner--infos">
+                        <div class="matchEditor_content__titleBanner--infos-title">
+                            <div class="matchStatus">
+                                <p class="matchStatus--tag dateState">
+                                    <i class="fa-regular fa-calendar-check"></i>
+                                    À venir
+                                </p>
+                                <p class="matchStatus--tag publicationState">
+                                    <i class="fa-regular fa-circle-check"></i>
+                                    Publié
+                                </p>
+                            </div>
+                            <h1>Nom du match</h1>
+                        </div>
+
+                    <div class="matchEditor_content__titleBanner--infos-details">
+                        <div class="matchEditor_content__titleBanner--infos-details-detail captain">
+                            <div class="captain-icon icon"><i class="fa-solid fa-crown"></i></div>
+                            <div class="captain-UserName"><a href="#">@jean_99</a></div>
+                        </div>
+                        <div class="matchEditor_content__titleBanner--infos-details-detail location">
+                            <div class="location-icon icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="matchLocation">5 avenue de la République - Paris 17ème arrondissement</div>
+                        </div>
+                        <div class="matchEditor_content__titleBanner--infos-details-detail teams">
+                            <div class="teams-icon icon"><i class="fa-solid fa-people-group"></i></div>
+                            <div class="numberOfTeams">3</div>
+                        </div>
+                    </div>
+                        
                     </div>
 
-                <div class="matchContent__titleBanner--infos-details">
-                    <div class="matchContent__titleBanner--infos-details-detail captain">
-                        <div class="captain-icon icon"><i class="fa-solid fa-crown"></i></div>
-                        <div class="captain-UserName"><a href="#">@jean_99</a></div>
+                    <div class="matchEditor_content__titleBanner--settings">
+                        <button class="postButton settingBtn">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <div>Publier</div>
+                        </button>
+                        <button class="modifyButton settingBtn">
+                            <i class="fa-solid fa-pen"></i>
+                            <div>Modifier</div>
+                        </button>
+                        <button class="deleteButton settingBtn">
+                            <i class="fa-solid fa-trash"></i>
+                            <div>Supprimer</div>
+                        </button>
                     </div>
-                    <div class="matchContent__titleBanner--infos-details-detail location">
-                        <div class="location-icon icon"><i class="fa-solid fa-location-dot"></i></div>
-                        <div class="matchLocation">5 avenue de la République - Paris 17ème arrondissement</div>
-                    </div>
-                    <div class="matchContent__titleBanner--infos-details-detail teams">
-                        <div class="teams-icon icon"><i class="fa-solid fa-people-group"></i></div>
-                        <div class="numberOfTeams">3</div>
-                    </div>
+
+
                 </div>
+                <div class="matchEditor_content__description">
+                    <h2>Description</h2>
+                    <div class="matchEditor_content__description--image">
+                        <img src="./assets/images/terrain.jpg" alt="Terrain de football">
+                    </div>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, reprehenderit possimus vel pariatur rerum, temporibus dolore blanditiis delectus quidem eos laboriosam, unde ad dolorem eligendi consequatur suscipit quae aspernatur eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum mollitia temporibus enim quisquam facere assumenda inventore dolor necessitatibus illum ab nihil provident quam, consectetur molestias quod beatae esse soluta quae. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo officia, enim dolor porro beatae quibusdam eveniet dignissimos est. Non laboriosam explicabo est quod illo tempore fugiat quia magni voluptate reprehenderit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia architecto tempore blanditiis, fugit aliquam nobis et earum. Doloribus excepturi numquam delectus, saepe fuga, modi ipsum mollitia, esse animi fugiat dignissimos.</p>
+                </div>
+                <div class="matchEditor_content__players">
+                    <h2>Joueurs</h2>
+                </div>
+                <div class="matchEditor_content__analytics">
+                    <h2>Statistiques du match</h2>
+                </div>
+            </section>
+
+            <aside class="matchEditor__bestPlayers">
+                <div class="matchEditor__bestPlayers--title">
+                    <i class="fa-solid fa-ranking-star"></i>
+                    <h2>Meilleurs joueurs</h2>
+                </div>
+
+                <div class="matchEditor__bestPlayers--players">
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
                     
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+                    
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
+                    <div class="matchEditor__bestPlayers--players-player">
+                        <div class="matchEditor__bestPlayers--players-player-picture">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <p class="matchEditor__bestPlayers--players-player-username">@username</p>
+                        <p class="matchEditor__bestPlayers--players-player-grade">4.6/5</p>
+                    </div>
+
                 </div>
 
-                <div class="matchContent__titleBanner--settings">
-                    <button class="postButton settingBtn">
-                        <i class="fa-solid fa-circle-arrow-up"></i>
-                        Publier
-                    </button>
-                    <button class="modifyButton settingBtn">
-                        <i class="fa-solid fa-pen"></i>
-                        Modifier
-                    </button>
-                    <button class="deleteButton settingBtn">
-                        <i class="fa-solid fa-trash"></i>
-                        Supprimer
-                    </button>
-                </div>
-
-
-            </div>
-            <div class="matchContent__description">
-                <h2>Description</h2>
-                <div class="matchContent__description--image">
-                    <img src="./assets/images/terrain.jpg" alt="Terrain de football">
-                </div>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, reprehenderit possimus vel pariatur rerum, temporibus dolore blanditiis delectus quidem eos laboriosam, unde ad dolorem eligendi consequatur suscipit quae aspernatur eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum mollitia temporibus enim quisquam facere assumenda inventore dolor necessitatibus illum ab nihil provident quam, consectetur molestias quod beatae esse soluta quae. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo officia, enim dolor porro beatae quibusdam eveniet dignissimos est. Non laboriosam explicabo est quod illo tempore fugiat quia magni voluptate reprehenderit? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia architecto tempore blanditiis, fugit aliquam nobis et earum. Doloribus excepturi numquam delectus, saepe fuga, modi ipsum mollitia, esse animi fugiat dignissimos.</p>
-            </div>
-            <div class="matchContent__players">
-                <h2>Joueurs</h2>
-            </div>
-            <div class="matchContent__analytics">
-                <h2>Statistiques du match</h2>
-            </div>
+            </aside>
         </section>
-
-        <aside class="bestPlayers">
-            <div>
-                <i class="fa-solid fa-ranking-star"></i>
-                <h2>Meilleurs joueurs</h2>
-            </div>
-
-        </aside>
 
     </main>
 

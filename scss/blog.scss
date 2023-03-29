@@ -27,7 +27,7 @@ body {
 
 .header {
     width: 100%;
-    height: $header-hight;
+    height: fit-content;
     padding: 0 1.5rem;
     display: flex;
     align-items: center;
@@ -39,6 +39,11 @@ body {
     background-color: rgba($color: #ececec, $alpha: 0.1);
     border-bottom: rgba($color:$main-color, $alpha: 0.1) solid 1px;
     
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 0.5rem 0;
+    }
+
     &__logo {
         width: 12rem;
         img {
@@ -46,25 +51,33 @@ body {
         }
     }
     &__navbar {
-        height: $header-hight;
         display: flex;
         align-items: center;
-        font-weight: bold;
         letter-spacing: 1px;
 
         ul {
             display: flex;
             align-items: center;
             gap: 2.5rem;
-            height: 100%;
-            width: 100%;
             font-size: 1.1rem;
             color: white;
+            font-weight: bold;
+
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                justify-content: space-evenly;
+                font-size: 0.8rem;
+                gap: 1rem;
+                font-weight: normal;
+            }
 
             li {
-                text-overflow:ellipsis;
-                overflow: hidden;
                 white-space: nowrap;
+
+                @media screen and (max-width: 768px) {
+                    border-right: white 1px solid;
+                    padding-right: 0.5rem;
+                }
 
                 a {
                     text-decoration: none;
@@ -77,20 +90,36 @@ body {
                 }
             }
 
+            li:nth-of-type(2) {
+                a{
+                    border-bottom: solid 2px $secondary-color;
+                    padding-bottom: 0.3rem;
+                }
+            }
+
             li:last-child {
                 display: flex;
                 align-items: center;
                 gap: 1rem;
                 border: solid 1px $secondary-color;
-                padding: 0.5rem 0.7rem;
+                padding: 0.3rem 0.5rem;
                 border-radius: 100vh;
                 cursor: pointer;
+
+                @media screen and (max-width: 768px) {
+                    flex-direction: row-reverse;
+                    padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+                }
 
                 .profil-picture {
                     width: 2.5rem;
                     aspect-ratio: 1;
                     border-radius: 50%;
                     background: $secondary-color;
+
+                    @media screen and (max-width: 768px) {
+                        width: 2rem;
+                    }
                 }
             }
         }
@@ -102,5 +131,5 @@ body {
 main {
     width: 90%;
     margin: auto;
-    margin-top: $header-hight + 4rem;
+    margin-top: $header-hight + 6rem;
 }

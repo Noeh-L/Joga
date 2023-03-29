@@ -2,6 +2,9 @@
 
 $body-bg: #f5f5f5;
 $header-hight: 5rem;
+@media screen and (max-width: 768px) {
+    $header-hight: 10rem;
+}
 $main-color: #401ACB;
 $secondary-color: #A9F706;
 $bloc-borderRadius: 2rem;

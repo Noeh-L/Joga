@@ -22,7 +22,7 @@ body {
 
 .header {
   width: 100%;
-  height: 5rem;
+  height: fit-content;
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
@@ -34,6 +34,12 @@ body {
   background-color: rgba(236, 236, 236, 0.1);
   border-bottom: rgba(64, 26, 203, 0.1) solid 1px;
 }
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
+}
 .header__logo {
   width: 12rem;
 }
@@ -41,25 +47,35 @@ body {
   width: 100%;
 }
 .header__navbar {
-  height: 5rem;
   display: flex;
   align-items: center;
-  font-weight: bold;
   letter-spacing: 1px;
 }
 .header__navbar ul {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  height: 100%;
-  width: 100%;
   font-size: 1.1rem;
   color: white;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .header__navbar ul {
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 0.8rem;
+    gap: 1rem;
+    font-weight: normal;
+  }
 }
 .header__navbar ul li {
-  text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+}
+@media screen and (max-width: 768px) {
+  .header__navbar ul li {
+    border-right: white 1px solid;
+    padding-right: 0.5rem;
+  }
 }
 .header__navbar ul li a {
   text-decoration: none;
@@ -69,14 +85,24 @@ body {
 .header__navbar ul li a:hover {
   color: #A9F706;
 }
+.header__navbar ul li:nth-of-type(2) a {
+  border-bottom: solid 2px #A9F706;
+  padding-bottom: 0.3rem;
+}
 .header__navbar ul li:last-child {
   display: flex;
   align-items: center;
   gap: 1rem;
   border: solid 1px #A9F706;
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   border-radius: 100vh;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .header__navbar ul li:last-child {
+    flex-direction: row-reverse;
+    padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+  }
 }
 .header__navbar ul li:last-child .profil-picture {
   width: 2.5rem;
@@ -84,9 +110,14 @@ body {
   border-radius: 50%;
   background: #A9F706;
 }
+@media screen and (max-width: 768px) {
+  .header__navbar ul li:last-child .profil-picture {
+    width: 2rem;
+  }
+}
 
 main {
   width: 90%;
   margin: auto;
-  margin-top: 9rem;
+  margin-top: 11rem;
 }

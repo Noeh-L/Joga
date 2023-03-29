@@ -20,7 +20,7 @@ body {
 
 .header {
   width: 100%;
-  height: 5rem;
+  height: fit-content;
   padding: 0 1.5rem;
   display: flex;
   align-items: center;
@@ -32,6 +32,12 @@ body {
   background-color: rgba(236, 236, 236, 0.1);
   border-bottom: rgba(64, 26, 203, 0.1) solid 1px;
 }
+@media screen and (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
+}
 .header__logo {
   width: 12rem;
 }
@@ -39,25 +45,35 @@ body {
   width: 100%;
 }
 .header__navbar {
-  height: 5rem;
   display: flex;
   align-items: center;
-  font-weight: bold;
   letter-spacing: 1px;
 }
 .header__navbar ul {
   display: flex;
   align-items: center;
   gap: 2.5rem;
-  height: 100%;
-  width: 100%;
   font-size: 1.1rem;
   color: white;
+  font-weight: bold;
+}
+@media screen and (max-width: 768px) {
+  .header__navbar ul {
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 0.8rem;
+    gap: 1rem;
+    font-weight: normal;
+  }
 }
 .header__navbar ul li {
-  text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+}
+@media screen and (max-width: 768px) {
+  .header__navbar ul li {
+    border-right: white 1px solid;
+    padding-right: 0.5rem;
+  }
 }
 .header__navbar ul li a {
   text-decoration: none;
@@ -67,20 +83,35 @@ body {
 .header__navbar ul li a:hover {
   color: #A9F706;
 }
+.header__navbar ul li:nth-of-type(1) a {
+  border-bottom: solid 2px #A9F706;
+  padding-bottom: 0.3rem;
+}
 .header__navbar ul li:last-child {
   display: flex;
   align-items: center;
   gap: 1rem;
   border: solid 1px #A9F706;
-  padding: 0.5rem 0.7rem;
+  padding: 0.3rem 0.5rem;
   border-radius: 100vh;
   cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .header__navbar ul li:last-child {
+    flex-direction: row-reverse;
+    padding: 0.3rem 0.6rem 0.3rem 0.3rem;
+  }
 }
 .header__navbar ul li:last-child .profil-picture {
   width: 2.5rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background: #A9F706;
+}
+@media screen and (max-width: 768px) {
+  .header__navbar ul li:last-child .profil-picture {
+    width: 2rem;
+  }
 }
 
 main {
@@ -95,6 +126,7 @@ main {
 @media screen and (max-width: 768px) {
   main {
     flex-direction: column;
+    margin-top: 15rem;
   }
 }
 main .matchManager {
@@ -130,6 +162,12 @@ main .matchManager__newMatch {
   overflow: hidden;
   transition: color 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
+@media screen and (max-width: 768px) {
+  main .matchManager__newMatch {
+    width: 100%;
+    justify-content: center;
+  }
+}
 main .matchManager__newMatch div {
   z-index: 1;
   white-space: nowrap;
@@ -139,6 +177,11 @@ main .matchManager__newMatch i {
   font-size: 1.5rem;
   color: #A9F706;
   z-index: 1;
+}
+@media screen and (max-width: 768px) {
+  main .matchManager__newMatch i {
+    color: #401ACB;
+  }
 }
 main .matchManager__newMatch::before {
   content: "";
@@ -156,6 +199,11 @@ main .matchManager__newMatch::after {
   transform: translate(-16.8rem, -50%);
   background: #401ACB;
   transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@media screen and (max-width: 768px) {
+  main .matchManager__newMatch::after {
+    transform: translate(-150%, -50%);
+  }
 }
 main .matchManager__newMatch:hover {
   color: #A9F706;
@@ -262,8 +310,18 @@ main .matchEditor_content__titleBanner {
   background: #ececec !important;
   gap: 1rem;
 }
+@media screen and (max-width: 768px) {
+  main .matchEditor_content__titleBanner {
+    flex-direction: column;
+  }
+}
 main .matchEditor_content__titleBanner--infos {
   flex: 1;
+}
+@media screen and (max-width: 768px) {
+  main .matchEditor_content__titleBanner--infos {
+    width: 100%;
+  }
 }
 main .matchEditor_content__titleBanner--infos-title {
   display: flex;
@@ -274,6 +332,11 @@ main .matchEditor_content__titleBanner--infos-title .matchStatus {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
+}
+@media screen and (max-width: 768px) {
+  main .matchEditor_content__titleBanner--infos-title .matchStatus {
+    justify-content: space-between;
+  }
 }
 main .matchEditor_content__titleBanner--infos-title .matchStatus--tag {
   border-radius: 6px;
@@ -315,6 +378,13 @@ main .matchEditor_content__titleBanner--infos-details::before {
   border-radius: 100vh;
   background: #dbdbdb;
 }
+@media screen and (max-width: 768px) {
+  main .matchEditor_content__titleBanner--infos-details::before {
+    width: 100%;
+    height: 1px;
+    background: rgb(165, 165, 165);
+  }
+}
 main .matchEditor_content__titleBanner--infos-details-detail {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -345,6 +415,12 @@ main .matchEditor_content__titleBanner--settings {
   width: fit-content;
   height: 100%;
 }
+@media screen and (max-width: 768px) {
+  main .matchEditor_content__titleBanner--settings {
+    width: 100%;
+    flex-direction: column;
+  }
+}
 main .matchEditor_content__titleBanner--settings .settingBtn {
   display: flex;
   width: fit-content;
@@ -374,6 +450,7 @@ main .matchEditor_content__titleBanner--settings .postButton {
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  border-radius: 1rem;
   width: 100%;
   flex: 1;
   position: relative;
@@ -398,9 +475,17 @@ main .matchEditor_content__titleBanner--settings .postButton::after {
   height: 150%;
   border-radius: 100vh;
   position: absolute;
-  transform: translate(70%, -70%);
+  transform: translate(72%, -72%);
   background: #401ACB;
   transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+@media screen and (max-width: 768px) {
+  main .matchEditor_content__titleBanner--settings .postButton::after {
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    transform: translate(56%, -56%);
+  }
 }
 main .matchEditor_content__titleBanner--settings .postButton:hover {
   color: #A9F706;
@@ -432,6 +517,7 @@ main .matchEditor_content__titleBanner--settings .deleteButton:hover {
 }
 main .matchEditor_content__description {
   min-height: 12rem;
+  overflow: hidden;
 }
 main .matchEditor_content__description--image {
   width: 18rem;

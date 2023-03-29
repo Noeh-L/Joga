@@ -50,6 +50,7 @@ body {
         display: flex;
         align-items: center;
         font-weight: bold;
+        letter-spacing: 1px;
 
         ul {
             display: flex;
@@ -57,7 +58,7 @@ body {
             gap: 2.5rem;
             height: 100%;
             width: 100%;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: white;
 
             li {

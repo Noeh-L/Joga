@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Apercu Pro';
+    src: url('ApercuPro-Regular.eot');
+    src: url('ApercuPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('ApercuPro-Regular.woff2') format('woff2'),
+        url('ApercuPro-Regular.woff') format('woff'),
+        url('ApercuPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Apercu Pro';
+    src: url('ApercuPro-Bold.eot');
+    src: url('ApercuPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('ApercuPro-Bold.woff2') format('woff2'),
+        url('ApercuPro-Bold.woff') format('woff'),
+        url('ApercuPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -20,6 +20,35 @@ body {
   background: #f5f5f5;
 }
 
+#loader-container {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#loader-container .loader {
+  width: 50px;
+  height: 50px;
+  border-top: solid 10px #401ACB;
+  border-right: solid 10px #A9F706;
+  border-bottom: solid 10px rgba(0, 0, 0, 0.2);
+  border-left: solid 10px #A9F706;
+  border-radius: 50%;
+  animation: loading 2s infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .header {
   width: 100%;
   height: fit-content;

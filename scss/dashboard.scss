@@ -45,6 +45,36 @@ body {
     background: $body-bg;
 }
 
+//______ LOADER :
+#loader-container {
+    background: rgba($color: #000000, $alpha: 0.5);
+    backdrop-filter: blur(3px);
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    @include flexCenterDiv;
+
+    .loader {
+        width: 50px;
+        height: 50px;
+        border-top: solid 10px $main-color;
+        border-right: solid 10px $secondary-color;
+        border-bottom: solid 10px rgba($color: #000000, $alpha: 0.2);
+        border-left: solid 10px $secondary-color;
+        border-radius: 50%;
+        animation: loading 2s infinite;
+    }
+}
+@keyframes loading {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+//______________
+
 .header {
     width: 100%;
     height: fit-content;
@@ -322,9 +352,9 @@ main {
         }
     }
 
-//-------------------------------
+//-------------------------
 // 📝 EDITEUR DE MATCHS 📝
-//-------------------------------
+//-------------------------
     .matchEditor {
         flex: 4;
         display: flex;
@@ -673,6 +703,77 @@ main {
             }
         }
     }
+
+//------------------
+// 📑 FORMULAIRE (modal) 📑
+//------------------
+    .form-container {
+        display: none;
+        background: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        z-index: 15;
+        inset: 0;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .form {
+        border-radius: $bloc-borderRadius;
+        padding: 2rem;
+        height: 70vh;
+        width: 60%;
+        background: $editorBlocs-bg;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        position: relative;
+
+        h2 {
+            margin-bottom: 2rem;
+        }
+
+        .fa-close {
+            position: absolute;
+            right: 2rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        &__actions {
+            display: flex;
+            justify-content: end;
+            gap: 2rem;
+            margin-top: 2rem;
+
+            button {
+                width: 7rem;
+                padding: 0.4rem 1rem;
+                border-radius: 5px;
+                border: none;
+                font-size: 1.1rem;
+                cursor: pointer;
+                transition: background 0.15s ease-in-out;
+            }
+            &--clear {
+                background: #dfdfdf;
+
+                &:hover {
+                    background: #bfbfbf;
+                }
+            }
+            &--create {
+                background: $main-color;
+                color: white;
+
+                &:hover {
+                    background: scale-color($color: $main-color,$lightness: 10%, $alpha: 1.0%);
+                }
+            }
+        }
+    }
+
+    
 
 }
 

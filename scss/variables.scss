@@ -47,3 +47,10 @@ $gradientBorder-MVP: 2px;
     box-shadow: 0px 0px 0px #4f4f4f;
 }
 
+// Centrer une div avec Flexbox
+@mixin flexCenterDiv {
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+}
+

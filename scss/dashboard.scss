@@ -23,7 +23,6 @@
     font-display: swap;
 }
 
-
 // VARIABLES et MIXINS:
 @import 'variables.scss';
 
@@ -32,7 +31,7 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    font-family: 'ApercuPro-Regular';
+    font-family: 'ApercuPro-Regular', sans-serif;
 }
 a {
     text-decoration: none;
@@ -57,11 +56,9 @@ body {
     .loader {
         width: 50px;
         height: 50px;
-        border-top: solid 10px $main-color;
-        border-right: solid 10px $secondary-color;
-        border-bottom: solid 10px rgba($color: #000000, $alpha: 0.2);
-        border-left: solid 10px $secondary-color;
+        border-bottom: solid 10px $main-color;
         border-radius: 50%;
+        background: linear-gradient(215deg, #fdfc47, #24fe41);;
         animation: loading 2s infinite;
     }
 }
@@ -96,9 +93,27 @@ body {
 
     &__logo {
         width: 10rem;
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+
+        @media screen and (max-width: 768px) {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
         img {
             width: 100%;
             height: 100%;
+        }
+        div {
+            padding: 0.5rem 0.6rem;
+            background: linear-gradient(215deg, #fdfc47, #24fe41);
+            border-radius: 8px;
+            color: black;
+            font-family: 'ApercuPro-Bold', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
         }
     }
     &__navbar {
@@ -117,7 +132,7 @@ body {
             @media screen and (max-width: 768px) {
                 width: 100%;
                 justify-content: space-evenly;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
                 gap: 1rem;
                 font-weight: normal;
             }
@@ -166,7 +181,7 @@ body {
                     width: 2.5rem;
                     aspect-ratio: 1;
                     border-radius: 50%;
-                    background: $secondary-color;
+                    background: linear-gradient(215deg, #fdfc47, #24fe41);
 
                     @media screen and (max-width: 768px) {
                         width: 2rem;
@@ -228,7 +243,7 @@ main {
                 white-space: nowrap;
             }
             i{
-                margin-right: 1rem;
+                margin-right: 2rem;
                 font-size: 1.5rem;
                 color: $secondary-color;
                 z-index: 1;
@@ -248,10 +263,11 @@ main {
                 content: "";
                 width: 102%;
                 height: 103%;
+                border-radius: 0 1rem 1rem 0;
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-16.8rem, -50%);
+                transform: translate(-18rem, -50%);
                 background: $main-color;
                 transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
 
@@ -294,6 +310,7 @@ main {
                 background: $editorBlocs-bg;
                 border-radius: 1.2rem;
                 overflow: hidden;
+                direction: rtl;
 
                 &-contentScrollable {
                     display: flex;
@@ -303,7 +320,7 @@ main {
                     min-height: 20rem;
                     max-height: 25rem;
                     overflow-y: scroll;
-                    padding-right: 1rem;
+                    padding-left: 1rem;
 
                     &::-webkit-scrollbar {
                         width: 10px;
@@ -615,31 +632,75 @@ main {
 
             &__description {
                 min-height: 12rem;
-                overflow: hidden;
+                display: flex;
+                gap: 2rem;
 
-                &--image {
-                    width: 18rem;
-                    aspect-ratio: 4 / 3;
-                    float: right;
-                    margin: 0 0 1rem 1rem;
-                    overflow: hidden;
-                    border-radius: 1rem;
-                    box-shadow: 0 0 15px scale-color($color: $editorBlocs-bg, $lightness: -30%, $alpha: 1.0%);  
-                    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1); 
-                    cursor: pointer;
+                @media screen and (max-width: 1160px) {
+                    flex-direction: column-reverse;
+                }
 
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
+                &--content {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1.5;
+
+                    &-txt {
+                        text-align: justify;
                     }
                 }
+                
+                &--card {
+                    height: fit-content;
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    background: $body-bg;
+                    padding: 0.3rem;
+                    border-radius: -0.9+$bloc-borderRadius;
+                    box-shadow: 0 5px 15px adjust-color($color: $editorBlocs-bg, $lightness: -20%, $alpha: 1.0%);
 
-                p {
-                    text-align: justify;
+                    .card__imageContainer {
+                        overflow: hidden;
+                        border-radius: 1rem 1rem 0.3rem 0.3rem;
+                        cursor: pointer;
+                        margin-bottom: 1rem;
+    
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                        }
+                    }
+
+                    .card__contentContainer {
+                        padding: 0 1rem 0.5rem 1rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1rem;
+
+                        div {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: row;
+
+                            i {
+                                @include flexCenterDiv;
+                                margin-right: 1rem;
+                                height: 1rem;
+                                aspect-ratio: 1;
+                                color: $main-color;
+                            }
+                            p {
+                                font-size: 0.9rem;
+
+                                span {
+                                    font-family: "ApercuPro-Bold", sans-serif;
+                                }
+                            }
+                        }
+                    }
                 }
             }
-
         }
 
 

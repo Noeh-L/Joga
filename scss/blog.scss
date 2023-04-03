@@ -1,5 +1,27 @@
 // FONT :
-@import url(//db.onlinewebfonts.com/c/40ea291a03f81ef88a049f19415be431?family=Apercu+Pro);
+@font-face {
+    font-family: 'ApercuPro-Regular';
+    src: url('../fonts/ApercuProRegular/ApercuPro-Regular.eot');
+    src: url('../fonts/ApercuProRegular/ApercuPro-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ApercuProRegular/ApercuPro-Regular.woff2') format('woff2'),
+        url('../fonts/ApercuProRegular/ApercuPro-Regular.woff') format('woff'),
+        url('../fonts/ApercuProRegular/ApercuPro-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ApercuPro-Bold';
+    src: url('../fonts/ApercuProBold/ApercuPro-Bold.eot');
+    src: url('../fonts/ApercuProBold/ApercuPro-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/ApercuProBold/ApercuPro-Bold.woff2') format('woff2'),
+        url('../fonts/ApercuProBold/ApercuPro-Bold.woff') format('woff'),
+        url('../fonts/ApercuProBold/ApercuPro-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 
 // VARIABLES :
 @import 'variables.scss';
@@ -37,11 +59,9 @@ body {
     .loader {
         width: 50px;
         height: 50px;
-        border-top: solid 10px $main-color;
-        border-right: solid 10px $secondary-color;
-        border-bottom: solid 10px rgba($color: #000000, $alpha: 0.2);
-        border-left: solid 10px $secondary-color;
+        border-bottom: solid 10px $main-color;
         border-radius: 50%;
+        background: linear-gradient(215deg, #fdfc47, #24fe41);;
         animation: loading 2s infinite;
     }
 }
@@ -76,9 +96,22 @@ body {
 
     &__logo {
         width: 10rem;
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+
         img {
             width: 100%;
             height: 100%;
+        }
+        div {
+            padding: 0.5rem 0.6rem;
+            background: linear-gradient(215deg, #fdfc47, #24fe41);
+            border-radius: 8px;
+            color: black;
+            font-family: 'ApercuPro-Bold', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
         }
     }
     &__navbar {

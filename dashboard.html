@@ -185,7 +185,7 @@
                     </div>
                     <div class="matchEditor_content__description--card">
                         <div class="card__imageContainer">
-                            <img src="./assets/images/terrain2.jpg" alt="Terrain de football">
+                            <img src="./assets/images/terrain2.jpg" alt="Terrain de football" />
                         </div>
 
                         <div class="card__contentContainer">
@@ -275,28 +275,47 @@
         </section>
 
         <section class="form-container">
-            <form action="#" class="form">
+
+            <div class="modal">
                 <i class="fa-solid fa-close"></i>
                 <h2>Créer un match</h2>
 
-                <label for="matchName">Nom du match</label>
-                <input type="text" />
+                <form method="post" action="#" class="modal__content">
+                    <fieldset class="general-infos">
+                        <legend>Informations générales</legend>
 
-                <label for="matchName">Capitaine</label>
-                <input type="text" />
+                            <label for="matchName">Nom du match</label>
+                            <input type="text" name="match-name" value="Match n°1" maxlength="40" />
 
-                <label for="matchName">Adresse</label>
-                <input type="text" />
+                            <label for="matchName">Date</label>
+                            <input type="datetime-local" id="date" min="<?= date('Y-m-d\TH:i'); ?>" />
 
-                <label for="matchDescription">Description</label>
-                <textarea name="matchDescription" id="matchDescription" cols="30" rows="10"></textarea>
+                            <label for="matchName">Adresse</label>
+                            <input type="text" />
+            
+                            <label for="matchName">Capitaine</label>
+                            <input type="text" name="capitaine-username" id="capitaineUsername" placeholder="ex. : @dupont_75"/>
+            
+                            <label for="number-of-teams">Nombre d'équipes</label>
+                            <input type="number" name="number-of-teams" id="number-of-teams" min="2" value="2"/>
+            
+                    </fieldset>
 
-                <div class="form__actions">
-                    <button class="form__actions--clear">Annuler</button>
-                    <button class="form__actions--create">Créer</button>
-                </div>
+                    <fieldset class="details">
+                        <legend>Détails du match</legend>
 
-            </form>
+                        <label for="matchDescription">Description</label>
+                        <textarea name="matchDescription" id="matchDescription" cols="30" rows="10"></textarea>
+
+                    </fieldset>
+
+                    <div class="modal__content--actions">
+                        <input type="button" value="Annuler" class="modal__content--actions-clear">
+                        <input type="button" value="Créer" class="modal__content--actions-create">
+                    </div>
+                </form>
+            </div>
+           
         </section>
 
     </main>

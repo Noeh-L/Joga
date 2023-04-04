@@ -650,14 +650,18 @@ main {
                 }
                 
                 &--card {
+                    width: 40%;
                     height: fit-content;
                     display: flex;
                     flex-direction: column;
-                    flex: 1;
                     background: $body-bg;
                     padding: 0.3rem;
                     border-radius: -0.9+$bloc-borderRadius;
                     box-shadow: 0 5px 15px adjust-color($color: $editorBlocs-bg, $lightness: -20%, $alpha: 1.0%);
+
+                    @media screen and (max-width: 1160px) {
+                        width: 100%;
+                    }
 
                     .card__imageContainer {
                         overflow: hidden;
@@ -668,7 +672,8 @@ main {
                         img {
                             width: 100%;
                             height: 100%;
-                            object-fit: cover;
+                            object-fit: cover; 
+                            vertical-align: middle;
                         }
                     }
 
@@ -768,7 +773,8 @@ main {
 //------------------
 // 📑 FORMULAIRE (modal) 📑
 //------------------
-    .form-container {
+
+    .form-container { // fond sombre
         display: none;
         background: rgba(0, 0, 0, 0.6);
         position: fixed;
@@ -776,66 +782,121 @@ main {
         inset: 0;
         justify-content: center;
         align-items: center;
-    }
 
-
-    .form {
-        border-radius: $bloc-borderRadius;
-        padding: 2rem;
-        height: 70vh;
-        width: 60%;
-        background: $editorBlocs-bg;
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        position: relative;
-
-        h2 {
-            margin-bottom: 2rem;
-        }
-
-        .fa-close {
-            position: absolute;
-            right: 2rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        &__actions {
+        .modal {
+            padding: 2rem;
+            border-radius: $bloc-borderRadius;
+            background: $body-bg;
+            height: 90vh;
+            width: 60%;
+            overflow: hidden;
+            position: relative;
             display: flex;
-            justify-content: end;
-            gap: 2rem;
-            margin-top: 2rem;
+            flex-direction: column;
 
-            button {
-                width: 7rem;
-                padding: 0.4rem 1rem;
-                border-radius: 5px;
-                border: none;
-                font-size: 1.1rem;
+            h2 {
+                margin-bottom: 2rem;
+                color: adjust-color($main-color, $lightness: 20%);
+            }
+    
+            .fa-close {
+                position: absolute;
+                right: 2rem;
+                font-size: 1.5rem;
                 cursor: pointer;
-                transition: background 0.15s ease-in-out;
             }
-            &--clear {
-                background: #dfdfdf;
 
-                &:hover {
-                    background: #bfbfbf;
+            &__content {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 3rem;
+                flex: 1;
+                overflow-y: scroll;
+                padding: 1rem 1.7rem 4rem 0rem;
+                border-bottom: solid 1px $editorBlocs-bg;
+                width: 100%;
+
+                &::-webkit-scrollbar {
+                    width: 10px;
+                    background-color: white;
+                    border-radius: 100vh;
                 }
-            }
-            &--create {
-                background: $main-color;
-                color: white;
+                &::-webkit-scrollbar-thumb {
+                    background-color: adjust-color($main-color, $lightness: 40%);	
+                    border-radius: 100vh;
+                    
+                    &:hover {
+                        background-color: #B7B7B7;
+                    }
+                    &:active {
+                        background-color: #8c8c8c;
+                    }
+                }
 
-                &:hover {
-                    background: scale-color($color: $main-color,$lightness: 10%, $alpha: 1.0%);
+                fieldset {
+                    display: flex;
+                    flex-direction: column;
+                    border-radius: 1rem;
+                    padding: 1.5rem;
+                    gap: 0.5rem;
+                    border: solid 1px adjust-color($main-color, $lightness: 30%);
+                    width: 100%;
+
+                    legend {
+                        color: adjust-color($main-color, $lightness: 30%);
+                        padding: 0 0.5rem;
+                    }
+
+                    input {
+                        border-radius: 0.5rem;
+                        border: solid 1px $editorBlocs-bg;
+                        height: 1.7rem;
+                        padding: 1rem 0.7rem;
+                    }
+                    textarea {
+                        resize: none;
+                        border-radius: 0.5rem;
+                        border: solid 1px $editorBlocs-bg;
+                        padding: 1rem;
+                        text-align: justify;
+                    }
+                }          
+        
+                &--actions {
+                    display: flex;
+                    justify-content: end;
+                    gap: 2rem;
+                    margin-top: 2rem;
+        
+                    input {
+                        width: 7rem;
+                        padding: 0.6rem 1rem;
+                        border-radius: 5px;
+                        border: none;
+                        font-size: 1.1rem;
+                        cursor: pointer;
+                        transition: background 0.15s ease-in-out;
+                    }
+                    &-clear {
+                        background: #dddddd;
+        
+                        &:hover {
+                            background: #bfbfbf;
+                        }
+                    }
+                    &-create {
+                        background: $main-color;
+                        color: white;
+        
+                        &:hover {
+                            background: scale-color($color: $main-color,$lightness: 20%, $alpha: 1.0%);
+                        }
+                    }
                 }
             }
         }
     }
-
-    
-
 }
 
 footer {

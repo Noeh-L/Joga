@@ -34,10 +34,12 @@
                 <li><a href="./dashboard.html">Tableau de bord</a></li>
                 <li><a href="./blog.html">Actualités</a></li>
                 <li>
-                    <span class="profil-id">Nicolas</span>
-                    <div class="profil-picture">
-                        <!-- insérer une image et paramétrer son css -->
-                    </div>
+                    <a href="./profil.html">
+                        <span class="profil-id">Nicolas</span>
+                        <div class="profil-picture">
+                            <!-- insérer une image et paramétrer son css -->
+                        </div>
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -284,29 +286,72 @@
                     <fieldset class="general-infos">
                         <legend>Informations générales</legend>
 
-                            <label for="matchName">Nom du match</label>
-                            <input type="text" name="match-name" value="Match n°1" maxlength="40" />
+                            <div class="general-infos--name">
+                                <label for="matchName">Nom du match</label>
+                                <input type="text" name="match-name" id="matchName" value="Match n°1" maxlength="40" required />
+                            </div>
 
-                            <label for="matchName">Date</label>
-                            <input type="datetime-local" id="date" min="<?= date('Y-m-d\TH:i'); ?>" />
+                            <div class="general-infos--location">
+                                <label for="location">Adresse</label>
+                                <input type="text" name="location" id="location" placeholder="ex. : 5 av. de la République - Paris 15" required />
+                            </div>
 
-                            <label for="matchName">Adresse</label>
-                            <input type="text" />
+                            <div class="general-infos--date">
+                                <label for="date">Date</label>
+                                <input type="datetime-local" name="date" id="date" min="<?= date('Y-m-d\TH:i'); ?>" required />
+                            </div>
+
+                            <div class="general-infos--capitaine">
+                                <label for="capitaine">Capitaine</label>
+                                <input type="text" name="capitaine" id="capitaine" placeholder="ex. : @dupont_75" required />
+                            </div>
             
-                            <label for="matchName">Capitaine</label>
-                            <input type="text" name="capitaine-username" id="capitaineUsername" placeholder="ex. : @dupont_75"/>
-            
-                            <label for="number-of-teams">Nombre d'équipes</label>
-                            <input type="number" name="number-of-teams" id="number-of-teams" min="2" value="2"/>
+                            <div class="general-infos--teams">
+                                <label for="teams">Nombre d'équipes</label>
+                                <input type="number" name="teams" id="teams" min="2" required />
+                            </div>
             
                     </fieldset>
 
                     <fieldset class="details">
                         <legend>Détails du match</legend>
 
-                        <label for="matchDescription">Description</label>
-                        <textarea name="matchDescription" id="matchDescription" cols="30" rows="10"></textarea>
+                        <div class="card-info details--parking">
+                            <p>Parking :</p>
+                            <div class="card-info-radios details--parking-radios">
+                                <input type="radio" name="parking" id="park-oui" value="oui" /><label for="park-oui">Oui</label>
+                                <input type="radio" name="parking" id="park-non" value="non" /><label for="park-non">Non</label>
+                            </div>
+                        </div>
 
+                        <div class="card-info details--access">
+                            <p>Accès PMR :</p>
+                            <div class="card-info-radios details--access-radios">
+                                <input type="radio" name="access" id="pmr-oui" value="oui" /><label for="pmr-oui">Oui</label>
+                                <input type="radio" name="access" id="pmr-non" value="non" /><label for="pmr-non">Non</label>
+                            </div>
+                        </div>
+
+                        <div class="card-info details--light">
+                            <p>Éclairage :</p>
+                            <div class="card-info-radios details--light-radios">
+                                <input type="radio" name="light" id="light-oui" value="oui" /><label for="light-oui">Oui</label>
+                                <input type="radio" name="light" id="light-non" value="non" /><label for="light-non">Non</label>
+                            </div>
+                        </div>
+
+                        <div class="card-info details--shelter">
+                            <p>Couvert :</p>
+                            <div class="card-info-radios details--shelter-radios">
+                                <input type="radio" name="shelter" id="shelter-oui" value="oui" /><label for="shelter-oui">Oui</label>
+                                <input type="radio" name="shelter" id="shelter-non" value="non" /><label for="shelter-non">Non</label>
+                            </div>
+                        </div>
+
+                        <div class="details--description">
+                            <label for="matchDescription">Description :</label>
+                            <textarea name="matchDescription" id="matchDescription" cols="30" rows="10"></textarea>
+                        </div>
                     </fieldset>
 
                     <div class="modal__content--actions">
@@ -321,7 +366,11 @@
     </main>
 
     <footer>
-
+        <div class="logo-footer">
+            <img src="assets/images/logo_thin.png" alt="Logo de Joga">
+            <div>MANAGER</div>
+        </div>
+        <p>© Copyright JOGA | All Rights are Reserved</p>
     </footer>
 </body>
 </html>

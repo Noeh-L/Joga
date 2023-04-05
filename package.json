@@ -6,8 +6,7 @@
   "directories": {
   },
   "scripts": {
-    "build-css": "sass --watch --no-source-map ./scss/login.scss:./assets/css/login.css ./scss/dashboard.scss:./assets/css/dashboard.css ./scss/blog.scss:./assets/css/blog.css"
-
+    "build-css": "sass --watch --no-source-map ./scss/login.scss:./assets/css/login.css ./scss/dashboard.scss:./assets/css/dashboard.css ./scss/blog.scss:./assets/css/blog.css ./scss/profil.scss:./assets/css/profil.css"
     },
   "author": "",
   "license": "ISC"
